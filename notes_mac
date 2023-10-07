@@ -1,0 +1,3 @@
+sudo chown -R hardik /Users/hardik/.local/state/nvim/shada
+
+brew tap homebrew/cask-fonts
