@@ -21,3 +21,6 @@ yabai -m config window_topmost on
 
 # ignore windows
 yabai -m rule --add title="Picture in Picture" sticky=on layer=above manage=off
+
+# target window
+yabai -m rule --add app="Simulator" sticky=on layer=above manage=on
