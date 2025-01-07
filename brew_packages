@@ -1,40 +1,34 @@
-google-chrome
+# shell
 fish
-neovim
-iterm2
-raycast
-stats
-iina
-visual-studio-code
-macs-fan-control
-flipper
-spotify
-notion
-charles
-slack
-intellij-idea
-android-studio
-android-platform-tools
-scrcpy
-yarn
-openjdk
-node
-cocaopods
 
+# browser
+google-chrome
+
+# terminal
+iterm2
+
+# dev tools
+android-studio
+visual-studio-code
+intellij-idea
+
+# dev env
+openjdk@17
+cocoapods
+android-platform-tools
+node@20
+yarn
+
+# utilities
+stats
+macs-fan-control
+raycast
 koekeishiya/formulae/yabai
 koekeishiya/formulae/skhd
 
-font-jetbrains-mono-nerd-font
-
-starship
-
-gpg2
-
-anaconda
-webpack
+# misc
+slack
+iina
 rectangle
-aldente
 gh
-font-jetbrains-mono
-
-topnotch
+font-jetbrains-mono-nerd-font
