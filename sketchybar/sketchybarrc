@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# Modern floating sketchybar — Catppuccin Mocha
+# Structure: colors.sh + icons.sh (vars) -> items/*.sh (widgets) -> plugins/*.sh (event scripts)
+
+export CONFIG_DIR="$HOME/.config/sketchybar"
+export PLUGIN_DIR="$CONFIG_DIR/plugins"
+export ITEM_DIR="$CONFIG_DIR/items"
+
+source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/icons.sh"
+
+##### Custom events #####
+# Fired by yabai signals (see ~/.yabairc) whenever the window layout changes,
+# so the per-space app icons can be repainted.
+sketchybar --add event space_windows_change
+
+##### Bar appearance (floating rounded pills) #####
+sketchybar --bar \
+  height=36 \
+  position=top \
+  y_offset=6 \
+  margin=10 \
+  corner_radius=9 \
+  blur_radius=30 \
+  color=$BAR_COLOR \
+  display=all \
+  padding_left=8 \
+  padding_right=8 \
+  sticky=on
+
+##### Defaults applied to every item #####
+default=(
+  updates=when_shown
+  icon.font="$FONT:Bold:14.0"
+  icon.color=$ICON_COLOR
+  icon.padding_left=10
+  icon.padding_right=4
+  label.font="$FONT:Bold:13.0"
+  label.color=$LABEL_COLOR
+  label.padding_left=4
+  label.padding_right=10
+  background.height=26
+  background.corner_radius=9
+  background.color=$ITEM_BG
+  padding_left=3
+  padding_right=3
+)
+sketchybar --default "${default[@]}"
+
+##### Left side (first sourced = left-most) #####
+source "$ITEM_DIR/caffeinate.sh"
+source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/front_app.sh"
+source "$ITEM_DIR/media.sh"
+
+##### Right side (first sourced = right-most) #####
+source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/volume.sh"
+source "$ITEM_DIR/wifi.sh"
+source "$ITEM_DIR/network.sh"
+source "$ITEM_DIR/cpu.sh"
+source "$ITEM_DIR/memory.sh"
+
+##### Finalize #####
+sketchybar --update

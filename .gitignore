@@ -1,0 +1,12 @@
+# macOS
+.DS_Store
+
+# Secrets — never commit real credentials
+fish/secrets.fish
+claude/settings.local.json
+
+# Machine-local / generated state (dirs are symlinked, apps write here)
+fish/fish_variables
+fish/functions/fish_prompt.fish
+*.bak
+*.log

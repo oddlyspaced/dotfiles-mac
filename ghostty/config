@@ -1,0 +1,29 @@
+# Fully borderless window (no title bar, no window controls)
+window-decoration = false
+
+# Don't restore windows/tabs from the previous session on launch
+window-save-state = never
+
+# Font
+font-family = "FantasqueSansM Nerd Font Mono"
+font-size = 13
+
+# Padding around the terminal text
+window-padding-x = 10
+window-padding-y = 8
+window-padding-balance = true
+
+# Background transparency + blur
+background-opacity = 0.6
+background-blur = 32
+
+# Catppuccin Mocha theme (built-in)
+theme = Catppuccin Mocha
+
+# Extras not covered by the built-in theme
+cursor-text = 11111b
+selection-background = 353749
+selection-foreground = cdd6f4
+split-divider-color = 313244
+
+term = xterm-256color

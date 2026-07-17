@@ -1,0 +1,330 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git rebase:*)",
+      "Bash(git show:*)",
+      "Bash(npx tsc:*)",
+      "Bash(PGPASSWORD=postgres psql:*)",
+      "Bash(brew list:*)",
+      "Bash(docker exec backend-postgres-1:*)",
+      "Bash(python -c \"import ast; ast.parse\\(open\\('src/app/api/report_builder.py'\\).read\\(\\)\\); print\\('OK'\\)\")",
+      "Bash(python3:*)",
+      "Bash(ls -la docker-compose.yml Makefile)",
+      "Bash(head -5 Makefile)",
+      "Bash(git push *)",
+      "Bash(git filter-branch *)",
+      "Bash(FILTER_BRANCH_SQUELCH_WARNING=1 git filter-branch -f --msg-filter 'python3 /tmp/msg_filter.py' 243342e3caa2c85d1daec228f6a97f5379d798c8..HEAD)",
+      "Bash(find *)",
+      "Bash(git commit *)",
+      "Bash(npx next *)",
+      "Bash(npm run *)",
+      "Read(//tmp/**)",
+      "Bash(echo \"exit=$?\")",
+      "Read(//Users/hardik/Projects/Mercuric/neusearch-web-master/app/**)",
+      "Read(//Users/hardik/Projects/Mercuric/neusearch-web-master/src/**)",
+      "Bash(git -C /Users/hardik/Projects/Mercuric/frontend branch)",
+      "Bash(echo \"EXIT_CODE: $?\")",
+      "Bash(git stash *)",
+      "Bash(git checkout *)",
+      "Bash(npx --yes playwright --version)",
+      "Bash(npx --yes playwright install chromium)",
+      "Bash(node scripts/responsive-audit.mjs)",
+      "Bash(npx --yes -p playwright@1.59.1 node scripts/responsive-audit.mjs)",
+      "Bash(npm install *)",
+      "Bash(curl -s http://localhost:3000/audit)",
+      "Bash(grep -o '<input[^>]\\\\{1,500\\\\}>')",
+      "Bash(curl -s http://localhost:3000/audit -o /tmp/audit.html)",
+      "Bash(echo \"started pid=$!\")",
+      "Bash(disown)",
+      "Bash(lsof -ti:3000)",
+      "Bash(xargs kill *)",
+      "Bash(git ls-tree *)",
+      "Bash(git rm *)",
+      "Bash(git remote *)",
+      "Bash(git merge *)",
+      "Bash(grep -E \"^/Users/hardik/Projects/Mercuric/frontend/app/\\(.*\\)/page\\\\.tsx$\")",
+      "Bash(git fetch *)",
+      "Bash(git branch *)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(gh pr *)",
+      "Bash(awk '{print $NF}')",
+      "Bash(grep -E \"\\\\.\\(tsx|ts\\)$\")",
+      "Bash(grep -v \":0$\")",
+      "Bash(npx eslint *)",
+      "Bash(npx madge *)",
+      "Read(//Users/hardik/Projects/Mercuric/backend/src/**)",
+      "Bash(grep -E '^\\\\.env$')",
+      "Bash(git -C /Users/hardik/Projects/Mercuric/frontend status)",
+      "Bash(git -C /Users/hardik/Projects/Mercuric/backend status)",
+      "Bash(git -C /Users/hardik/Projects/Mercuric/frontend add app/admin/pipeline-monitor components/layout/AdminSidebar.tsx lib/admin-api.ts lib/types.ts)",
+      "Bash(git -C /Users/hardik/Projects/Mercuric/frontend commit -m 'chore: remove dead pipeline-monitor admin feature *)",
+      "Bash(git *)",
+      "Bash(grep *)",
+      "Bash(open *)"
+    ],
+    "defaultMode": "default"
+  },
+  "model": "opus",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ],
+    "PermissionDenied": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'",
+            "timeout": 86400
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "matcher": "auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      },
+      {
+        "matcher": "manual",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      },
+      {
+        "matcher": "manual",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 '/Users/hardik/.claude/hooks/claude-island-state.py'"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash '/Users/hardik/.claude/statusline-command.sh'"
+  },
+  "enabledPlugins": {
+    "clangd-lsp@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "vercel@claude-plugins-official": true
+  },
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "preferredNotifChannel": "kitty",
+  "remoteControlAtStartup": true,
+  "voiceEnabled": true,
+  "agentPushNotifEnabled": true
+}
