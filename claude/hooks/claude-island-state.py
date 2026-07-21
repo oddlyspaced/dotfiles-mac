@@ -12,6 +12,35 @@ import sys
 SOCKET_PATH = "/tmp/claude-island.sock"
 TIMEOUT_SECONDS = 300  # 5 minutes for permission decisions
 
+# Per-session state for the sketchybar Claude spark (mascot). The animator
+# daemon (~/.config/sketchybar/plugins/claude_mascot.sh) reads these files.
+SKETCHYBAR_STATE_DIR = "/tmp/claude-mascot"
+
+
+def write_sketchybar_state(session_id, status, pid):
+    """Fire-and-forget: record this session's status for the sketchybar spark.
+
+    Writes "<status> <pid>" to /tmp/claude-mascot/<session_id>. The pid lets the
+    animator drop sessions whose Claude process has died. Wrapped so it can
+    never raise and affect Claude or ClaudeIsland.
+    """
+    try:
+        if not session_id or not status:
+            return
+        safe = str(session_id).replace("/", "_")
+        path = os.path.join(SKETCHYBAR_STATE_DIR, safe)
+        if status == "ended":
+            try:
+                os.remove(path)
+            except OSError:
+                pass
+            return
+        os.makedirs(SKETCHYBAR_STATE_DIR, exist_ok=True)
+        with open(path, "w") as f:
+            f.write(f"{status} {pid}")
+    except Exception:
+        pass
+
 
 def get_tty():
     """Get the TTY of the Claude process (parent)"""
@@ -143,6 +172,9 @@ def main():
         state["tool_input"] = tool_input
         # tool_use_id lookup handled by Swift-side cache from PreToolUse
 
+        # Blocked on the user — spark should rest, not twinkle.
+        write_sketchybar_state(session_id, "waiting_for_approval", claude_pid)
+
         # Send to app and wait for decision
         response = send_event(state)
 
@@ -224,6 +256,9 @@ def main():
 
     else:
         state["status"] = "unknown"
+
+    # Record state for the sketchybar Claude spark before the socket send.
+    write_sketchybar_state(session_id, state.get("status"), claude_pid)
 
     # Send to socket (fire and forget for non-permission events)
     send_event(state)

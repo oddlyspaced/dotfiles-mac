@@ -51,6 +51,7 @@ sketchybar --default "${default[@]}"
 source "$ITEM_DIR/caffeinate.sh"
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
+source "$ITEM_DIR/claude_mascot.sh"
 source "$ITEM_DIR/media.sh"
 
 ##### Right side (first sourced = right-most) #####
@@ -64,3 +65,10 @@ source "$ITEM_DIR/memory.sh"
 
 ##### Finalize #####
 sketchybar --update
+
+##### Claude spark animator #####
+# Restart the twinkle daemon on every (re)load so copies never stack. The
+# script self-detaches into its own session (see plugins/claude_mascot.sh), so
+# it survives `sketchybar --reload` reaping the config's process group.
+pkill -f "claude_mascot.sh daemon" 2>/dev/null
+"$PLUGIN_DIR/claude_mascot.sh" daemon >/dev/null 2>&1
