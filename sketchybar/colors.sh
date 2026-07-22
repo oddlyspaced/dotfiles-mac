@@ -33,7 +33,3 @@ export ACCENT=$MAUVE                 # active/highlight accent
 export ICON_COLOR=$TEXT
 export LABEL_COLOR=$TEXT
 export TRANSPARENT=0x00000000
-
-# Claude spark (mascot) — brand clay-orange #D97757
-export CLAUDE_ORANGE=0xffd97757      # bright spark while Claude is working
-export CLAUDE_DIM=0x66d97757         # dimmed spark when idle (~40% alpha)
