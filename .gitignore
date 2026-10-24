@@ -10,3 +10,6 @@ fish/fish_variables
 fish/functions/fish_prompt.fish
 *.bak
 *.log
+
+# Claude Code mods: types the engine generates on load
+claude/mods/*/.claude-plugin/types/

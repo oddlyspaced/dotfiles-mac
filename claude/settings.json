@@ -65,6 +65,9 @@
     ],
     "defaultMode": "default"
   },
+  "env": {
+    "CLAUDE_CODE_PLUGIN_DIRS": "~/.claude/mods/aria2-progress"
+  },
   "model": "opus",
   "hooks": {
     "Notification": [

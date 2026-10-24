@@ -62,13 +62,14 @@ link "$DOTFILES/fish/conf.d"        "$HOME/.config/fish/conf.d"
 link "$DOTFILES/fish/functions"     "$HOME/.config/fish/functions"
 link "$DOTFILES/fish/completions"   "$HOME/.config/fish/completions"
 
-echo; echo "▸ Claude Code (settings, statusline, skills, commands, agents, hooks)"
+echo; echo "▸ Claude Code (settings, statusline, skills, commands, agents, hooks, mods)"
 link "$DOTFILES/claude/settings.json"         "$HOME/.claude/settings.json"
 link "$DOTFILES/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
 link "$DOTFILES/claude/skills"                "$HOME/.claude/skills"
 link "$DOTFILES/claude/commands"              "$HOME/.claude/commands"
 link "$DOTFILES/claude/agents"                "$HOME/.claude/agents"
 link "$DOTFILES/claude/hooks"                 "$HOME/.claude/hooks"
+link "$DOTFILES/claude/mods"                  "$HOME/.claude/mods"
 
 echo
 echo "Done.$([ "$DRY_RUN" = "1" ] && echo ' (dry run)')"

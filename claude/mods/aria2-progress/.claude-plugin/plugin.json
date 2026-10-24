@@ -1,0 +1,6 @@
+{
+  "name": "aria2-progress",
+  "version": "0.1.0",
+  "description": "Live aria2c download progress in a pane and the status line, read from aria2c's JSON-RPC interface",
+  "types": "./types/index.d.ts"
+}

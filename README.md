@@ -29,7 +29,7 @@ Theme throughout: **Catppuccin Mocha**. UI font: **FantasqueSansM Nerd Font**.
 | `ghostty/config` | `~/.config/ghostty/config` | Terminal — borderless, translucent, Catppuccin Mocha |
 | `fish/` | `~/.config/fish/` | Shell config, git aliases, project helpers |
 | `nvim/` | `~/.config/nvim/` | LazyVim-based Neovim (TS/React/RN/Next/Go) |
-| `claude/` | `~/.claude/` | Claude Code settings, statusline, skills, commands, agents, hooks |
+| `claude/` | `~/.claude/` | Claude Code settings, statusline, skills, commands, agents, hooks, mods |
 | `Brewfile` | — | All Homebrew taps, formulae, and casks |
 | `install.sh` | — | Idempotent symlink installer (backs up what it replaces) |
 
@@ -183,6 +183,11 @@ run `:Lazy restore` to match it.
 - `skills/`, `commands/`, `agents/` — custom skills, slash commands, and subagents.
 - `hooks/claude-island-state.py` — pushes session state to the **Claude Island** app
   (the `claude-island` cask) over a Unix socket.
+- `mods/aria2-progress/` — a Claude Code mod that shows live **aria2c** download
+  progress in a side pane and the status line (Catppuccin Mocha colors). Open the
+  pane with `/aria2`. aria2c must run with `--enable-rpc` (port 6800); set
+  `ARIA2_RPC_URL` / `ARIA2_RPC_SECRET` for another port or a secret.
+  `settings.json` loads it in every session through `env.CLAUDE_CODE_PLUGIN_DIRS`.
 
 `settings.local.json` (machine-local permission grants) is intentionally **not**
 tracked.
